@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { CiBookmark, CiShare1 } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ singleNews }) => {
-  console.log(singleNews);
-  const { title, author, image_url, details, rating, total_view } = singleNews;
+  //   console.log(singleNews);
+  const { title, author, image_url, details, rating, total_view, _id } =
+    singleNews;
   return (
     <div className="shadow-sm rounded-3xl p-5 ">
       <div className="bg-gray-50 p-5 rounded-2xl">
@@ -31,7 +33,9 @@ const NewsCard = ({ singleNews }) => {
         <div className="card-body">
           <p>
             {details.slice(0, 150)}...{" "}
-            <span className="font-bold text-orange-400">Read more</span>
+            <Link to={`/news/${_id}`} className="font-bold text-orange-400">
+              Read more
+            </Link>
           </p>
         </div>
         <div className="flex justify-between">
